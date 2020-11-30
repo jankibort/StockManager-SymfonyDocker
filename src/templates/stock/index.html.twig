@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('new') }}" class="btn btn-warning float-right">Add Product</a>
+    <table id="products" class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.amount }}</td>
+                <td>
+                    <a href="{{ path('edit', {'id': product.id}) }}" class="btn btn-sm btn-outline-light">Edit</a>
+                    <a href="#" class="btn btn-sm btn-outline-danger data-delete"
+                       data-id="{{ product.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/main.js') }}"
+{% endblock %}

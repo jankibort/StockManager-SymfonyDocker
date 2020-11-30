@@ -1,0 +1,28 @@
+index:
+  path: /
+  controller: App\Controller\HomeController::index
+
+new:
+  path: /products/new
+  controller: App\Controller\ProductsController::newProduct
+  methods: [GET, POST]
+
+delete:
+  path: /products/delete/{id}
+  controller: App\Controller\ProductsController::deleteProduct
+  methods: [DELETE]
+
+edit:
+  path: /products/edit/{id}
+  controller: App\Controller\ProductsController::editProduct
+  methods: [ GET, POST ]
+
+
+products:
+  path: /products/{state}/{amount}/{api}
+  controller: App\Controller\ProductsController::showProducts
+  defaults: {state: "all", amount: "any", api: ""}
+  methods: [GET]
+
+
+
